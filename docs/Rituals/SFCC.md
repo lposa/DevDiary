@@ -26,3 +26,8 @@ These are the steps for importing latest data (products, promotions, content pag
 9. Scroll down on the bottom of the page and notice that process has started
 10. Press REFRESH button to check status. Process should take 10-25 minutes, depends on data size.
 11. When it's done, status will be "Finished (XXXX data errors)" - where amount of written errors should be ignored.
+
+## Can't pass security when going to store front
+
+1. Enable DW Extension in incognito mode
+2. Log in to your sandbox in incognito mode
