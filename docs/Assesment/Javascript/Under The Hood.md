@@ -126,7 +126,7 @@ check()
 - This above is a common cause of memory leaks (Circular References)
 - This is where `Mark and Sweep` comes in. This assumes the knowledge of the set of rules called `the root`. In Javascript, the root is the global object. Periodically, the `Garbage Collector` will start from this root object, find all the object that are referenced  from these roots, then all the objects referenced from those roots and so on. Starting from the root the GC will find all the reachable objects and collect all non-reachable objects.
 - Looking at the above example, JS can easily track down the name of the object, since the hierarchy is well-defined. When the function call returns, the two objects are no longer referenced by any resource that is reachable from the global root object so their allocated memory will be reclaimed.
-https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in-javascript?autoSkip=true&dApp=53239054&leis=LAA&resume=false&u=2113185
+
 
 
 ## Javascript Event Loop
@@ -155,3 +155,38 @@ https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in
 - `setTimeout`, `setCallback`, etc.. get added to the `Macrotask Queue`. 
 - `Promise` callbacks, `then` and `catch` methods, get added to the `Microtask Queue`.
 - `Microtask` queue has priority of execution.
+
+https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in-javascript?autoSkip=true&dApp=53239054&leis=LAA&resume=false&u=2113185
+
+
+# Mark and sweep according to AI
+
+Sure, I can provide a simplified explanation.
+
+The Mark and Sweep algorithm is a traditional garbage collection algorithm used in JavaScript engines such as V8 (that powers Node.js and Google Chrome). The primary purpose of a garbage collector is to identify and automatically clean up ("collect") the pieces of memory that are no longer in use by the program.
+
+Here's how the Mark and Sweep algorithm works:
+
+**Mark Phase**:
+
+1. The algorithm goes through all the active variables (also known as "roots"). These are typically variables currently in the call stack (like function parameters and variables), in global scope and similar.
+
+2. It then "marks" all the objects these variables refer to.
+
+3. It then checks the objects that these objects refer to, and marks them as well.
+
+4. It continues doing so, marking all reachable (directly or indirectly) objects. This process is often called a "marking pass".
+
+This way, all objects that can be accessed in some way get marked.
+
+**Sweep Phase**:
+
+1. After the "mark" phase completes, the garbage collector goes through all the objects in the memory.
+
+2. If it finds an object that's not marked (i.e., it's unreachable and can't be accessed from any currently active part of the application), it means the application has no way of using that object. Therefore, this object can be safely removed to free up memory.
+
+3. The garbage collector then de-allocates these unmarked objects, releasing the memory space they had been occupying for re-use by the program. This cleanup process is often called a "sweep pass".
+
+By combining the Mark and Sweep phases, JavaScript engines can automatically manage memory, cleaning up objects that are no longer in use in the application. However, circular references can sometimes confuse this process or make it less efficient, which is why it's a good practice to manually ensure you avoid circular references if possible.
+
+(Note: Modern JavaScript engines have optimization strategies to deal with circular references, so they're not necessarily problematic, but understanding why they could be is useful.)
