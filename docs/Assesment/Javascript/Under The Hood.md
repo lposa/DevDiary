@@ -126,7 +126,6 @@ check()
 - This above is a common cause of memory leaks (Circular References)
 - This is where `Mark and Sweep` comes in. This assumes the knowledge of the set of rules called `the root`. In Javascript, the root is the global object. Periodically, the `Garbage Collector` will start from this root object, find all the object that are referenced  from these roots, then all the objects referenced from those roots and so on. Starting from the root the GC will find all the reachable objects and collect all non-reachable objects.
 - Looking at the above example, JS can easily track down the name of the object, since the hierarchy is well-defined. When the function call returns, the two objects are no longer referenced by any resource that is reachable from the global root object so their allocated memory will be reclaimed.
-https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in-javascript?autoSkip=true&dApp=53239054&leis=LAA&resume=false&u=2113185
 
 
 ## Javascript Event Loop
@@ -155,3 +154,6 @@ https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in
 - `setTimeout`, `setCallback`, etc.. get added to the `Macrotask Queue`. 
 - `Promise` callbacks, `then` and `catch` methods, get added to the `Microtask Queue`.
 - `Microtask` queue has priority of execution.
+
+
+- Link to content: https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in-javascript?autoSkip=true&dApp=53239054&leis=LAA&resume=false&u=2113185
