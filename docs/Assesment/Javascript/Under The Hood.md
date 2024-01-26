@@ -156,7 +156,6 @@ check()
 - `Promise` callbacks, `then` and `catch` methods, get added to the `Microtask Queue`.
 - `Microtask` queue has priority of execution.
 
-https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in-javascript?autoSkip=true&dApp=53239054&leis=LAA&resume=false&u=2113185
 
 
 # Mark and sweep according to AI
@@ -190,3 +189,6 @@ This way, all objects that can be accessed in some way get marked.
 By combining the Mark and Sweep phases, JavaScript engines can automatically manage memory, cleaning up objects that are no longer in use in the application. However, circular references can sometimes confuse this process or make it less efficient, which is why it's a good practice to manually ensure you avoid circular references if possible.
 
 (Note: Modern JavaScript engines have optimization strategies to deal with circular references, so they're not necessarily problematic, but understanding why they could be is useful.)
+
+
+- Link to content: https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in-javascript?autoSkip=true&dApp=53239054&leis=LAA&resume=false&u=2113185
