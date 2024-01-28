@@ -39,12 +39,15 @@ console.log(three());
 
 ### Hoisting
 
+- Makes some types of variables accessible/usable inthe code before they are actually declared. "Variables are lifted to the top of their scope"
 - `Variable Object (VO)` is an object-like container created within an execution context. It stores the variables and function declarations defined.
 - Variables declared with `let` and `const `keywords are store uninitialized
 - Variables declared with `var` are stored with the default value undefined
 - During the `execution phase`, we can invoke a function before we declare it, since we have a reference to the entire function in memory.
 - The process of storing variables and function declarations in memory prior to execution of the code is known as hoisting.
 
+![hoisting](hoisting.png)
+![tdz](temporal-dead-zone.png)
 
 ### How JavaScript Engines Work
 
@@ -128,7 +131,6 @@ check()
 - Looking at the above example, JS can easily track down the name of the object, since the hierarchy is well-defined. When the function call returns, the two objects are no longer referenced by any resource that is reachable from the global root object so their allocated memory will be reclaimed.
 
 
-
 ## Javascript Event Loop
 
 - Memory heap - where data is stored in JavaScript, large and unstructured
@@ -155,6 +157,64 @@ check()
 - `setTimeout`, `setCallback`, etc.. get added to the `Macrotask Queue`. 
 - `Promise` callbacks, `then` and `catch` methods, get added to the `Microtask Queue`.
 - `Microtask` queue has priority of execution.
+
+
+### Extra info about JS
+
+- Multi-paradigm language - means that it supports procedural, OOP and Function Programing.
+- First class functions - means that functions are treated as variables. We can pass them to other functions and a function can return a function.
+- Dynamically typed language - we don't assign types to variables, they only get known once the JS Engine runs our code.
+-  JS Engine - a computer program that runs the JS code. Most popular one is V8 from Google, that also can run Node JS.
+
+
+- Link to content: https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in-javascript?autoSkip=true&dApp=53239054&leis=LAA&resume=false&u=2113185
+
+
+# Udemy Course
+
+### How does execution happen? 
+
+1. After compilation, when the code is ready to be executed, a `global execution` context is created. This is a place where all variables are stored that are necessary to run the code.
+2. Then the execution of top level code happens.
+3. For each function, a new execution context is created with all the necessary information to run it.
+
+### Whats inside of the Global Execution Context?
+
+1. Variable environment - all variables, functions, argument objects
+2. Scope Chain - consists of references to variables that are located outside the current context
+3. this keyword
+
+- IMPORTANT: Arrow functions don't have the `argument object` and the `this` keyword
+- All this gets generated in the `Creation Phase` that happens right before the `Executuion Phase`
+
+### Scope and Scope Chain
+
+- Where do variables live? How to access them? How the programs variables are organized and accessed? 
+- Lexical scoping - scoping is controlled by placement of functions and blocks in the code
+- Scope - space or environment a certain variable is declared. There are `global`, `function` and `block` scope.
+- Scope of a variable - region of our code where a certain variable can be accessed
+
+![scopes](scope.png)
+![scopes](scope-chain.png)
+
+
+- Note: purple block (block scope) doesn't have access to the yellow (functional) and vice versa because of lexical scoping. Siblings never have access to each other, just their parent.
+
+![scopes-summary](scope-chain-summary.png)
+
+
+### this Keyword
+
+- this keyword/variable is a special variable that is created for every execution context (every function). Takes the value of (points to) the "owner" of the function on which the `this` keyword is used.
+- this is not static, it depends on how the function is called, and its value is only assigned when the function  is acutally called.
+
+![this-keyword](this-keyword.png)
+
+
+### Primitives vs. reference values
+
+![pvsr](primitive-vs-reference.png)
+
 
 
 
