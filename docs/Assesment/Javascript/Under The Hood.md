@@ -1,4 +1,6 @@
-# JavaScript Execution Context
+# Under the Hood
+
+### JavaScript Execution Context
 
 - Contains the code that is currently running and everything that aids its execution.
 
@@ -178,7 +180,7 @@ check()
 2. Then the execution of top level code happens.
 3. For each function, a new execution context is created with all the necessary information to run it.
 
-### Whats inside of the Global Execution Context?
+### What's inside the Global Execution Context?
 
 1. Variable environment - all variables, functions, argument objects
 2. Scope Chain - consists of references to variables that are located outside the current context
@@ -215,7 +217,27 @@ check()
 
 ![pvsr](primitive-vs-reference.png)
 
+### Closures
 
+- A closure is the combination of a function bundled together with references to its surrounding. In other words, a closure gives you access to an outer functions scope from an inner function.
+```javascript
+function human() {
+    const name = 'Sina'
+    function sayHi() {
+        console.log(`Hi I am ${name}`)
+    }
+    sayHi()
+}
+//even better 
+function human(name) {
+   function sayHi() {
+      console.log(`Hi I am ${name}`)
+   }
+   sayHi()
+}
+```
+
+- Closures remember the outer function scope even after creation time.
 
 
 # Mark and sweep according to AI

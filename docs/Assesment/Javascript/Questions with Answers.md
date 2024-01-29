@@ -74,10 +74,12 @@ function doTheThing() {
 }
 ```
 
-## Closure example - what does it log out?
+## Closure example - what does it log out? What are closures?
+
+
 
 ```javascript
-for (var i = 0; i < 3; i++){
+for (var i = 0; i < 3; i++) {
     const log = () => {
         console.log(i);
     }
@@ -91,6 +93,7 @@ for (var i = 0; i < 3; i++){
 // in this case, the loop will capture the variable in each iteration
 // this way it lives in the HEAP memory and not in the call stack where it would get removed immediatly
 ```
+https://www.youtube.com/watch?v=ISp3qjoh3E0&ab_channel=tapaScriptbyTapasAdhikary
 
 ## Strict mode - what is it?
 
