@@ -274,3 +274,6 @@ By combining the Mark and Sweep phases, JavaScript engines can automatically man
 
 
 - Link to content: https://www.linkedin.com/learning/javascript-under-the-hood/garbage-collector-in-javascript?autoSkip=true&dApp=53239054&leis=LAA&resume=false&u=2113185
+
+
+
