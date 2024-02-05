@@ -239,6 +239,10 @@ function human(name) {
 
 - Closures remember the outer function scope even after creation time.
 
+# DIFFERENCE BETWEEN FUNCTION AND METHOD
+
+- Function — a set of instructions that perform a task. Method — a set of instructions that are associated with an object.
+- Never use an arrow function as a method in an object, because its `this` keyword refers to the first outer scope and not the object.
 
 # Mark and sweep according to AI
 
