@@ -100,7 +100,7 @@ element.addEventListener('click', test.bind('argument'))
 
 ## Lifecycle DOM Events
 
-1. DOMContentLoaded - html is parsed and dom tree is built. Does this mean we need to wrap our scrips with this event? No. If we put our `<scrip>` file at the end of our html, this is always going to happen.
+1. DOMContentLoaded - html is parsed and dom tree is built. Does this mean we need to wrap our scrips with this event? No. If we put our `<script>` file at the end of our html, this is always going to happen.
 2. Load event - fired by the window when all external files such as images are loaded.
 3. `beforunload` - fired before user leaves page
 
