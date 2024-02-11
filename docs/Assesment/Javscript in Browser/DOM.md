@@ -78,7 +78,7 @@ document.querySelector('nav__links').addEventListener('click', function(e){
 })
 ```
 
-## Passing arguments to even handlers
+## Passing arguments to event handlers
 
 - Remember that event handlers expect a function, and you cant simply just pass a value instead.
 
