@@ -82,6 +82,8 @@ the optimized machine code can simply be reused in order to speed things up. How
 
 ### JUST IN TIME JIT
 
+![just-in-time](just-in-time.png)
+
 - Modern browsers have added a new part to the JS Engine called the `Monitor` or `Profiler`. It watches the code as it runs and makes a note how many times it is run, and what types are used. 
 - At first the `monitor` just runs everything through the `interpreter`.  If the same line of code has run a few times, that segment of the code is called `warm`, if run a lot of times then `hot`.
 - When a function starts getting `warm` the `JIT` sends it to the compiler to be compiled. Then stores that compilation.
