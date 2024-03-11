@@ -96,6 +96,14 @@ the optimized machine code can simply be reused in order to speed things up. How
 - Shapes are useful for an optimization technique called `inline caching`. That is when results of the previous operations are stored so that the next time the engine needs to get the value of a property with the same shape, it just gets it from the cache, rather than doing an offset lookup each time.
 - These inline caches also create some feedback for the optimizing compiler. This feedback is used to optimize the code and create machine code.
 
+- Simpler version:
+1. Code goes through **parsing**, generates AST (abstract syntax tree)
+2. The AST then goes to the next step, **compilation**, and a machine code gets generated
+3. Then we go to **execution**
+4. The first time **execution** happens, it is a very de-optimized machine code, and this happens to get the code running as fast as possible.
+5. But, then in the background, while program is already running, the machine code goes through **optimization** and gets recompiled.
+6. The old de-optimized code gets swapped by the new optimized code.
+
 ### Garbage Collector
 
 - Purpose is to monitor memory allocation and determine when a block of allocated memory is no longer need and reclaim it. This process is automated in JS by the Browser.
@@ -161,6 +169,8 @@ check()
 - `setTimeout`, `setCallback`, etc.. get added to the `Macrotask Queue`. 
 - `Promise` callbacks, `then` and `catch` methods, get added to the `Microtask Queue`.
 - `Microtask` queue has priority of execution.
+
+![event-loop](event-loop.png)
 
 
 ### Extra info about JS
@@ -240,6 +250,8 @@ function human(name) {
 ```
 
 - Closures remember the outer function scope even after creation time.
+- Closure variables are live references to the outer-scoped variable, not a copy.
+- 
 
 # DIFFERENCE BETWEEN FUNCTION AND METHOD
 
