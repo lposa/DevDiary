@@ -251,7 +251,7 @@ function human(name) {
 
 - Closures remember the outer function scope even after creation time.
 - Closure variables are live references to the outer-scoped variable, not a copy.
-- 
+
 
 # DIFFERENCE BETWEEN FUNCTION AND METHOD
 
