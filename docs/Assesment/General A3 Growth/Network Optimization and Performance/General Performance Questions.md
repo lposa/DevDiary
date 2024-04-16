@@ -57,7 +57,6 @@
 
 - Inlining CSS and JavaScript refers to the practice of placing your CSS styles and JavaScript directly into your HTML document, rather than linking them as external files.
 
-With CSS:
 
 External: You use a link in the HTML head section to connect to an external .css file.
 Inline: You place the CSS rules directly into the style attribute of the HTML tags, or within a style block inside the HTML document.
