@@ -50,4 +50,8 @@ server.listen(3005);
 - Check phase. Execute `setImmediate()` callbacks.
 - Close Callbacks. Execute all `close` event callbacks.
 - At the end we can exit the event loop, `process.exit`, if there are no events anymore to handle. This very RARELY happens.
-- 
+
+
+![img.png](nodejs-eventloop.png)
+
+![img-order.png](nodejs-eventloop-order.png)
