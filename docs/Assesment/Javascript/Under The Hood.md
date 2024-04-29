@@ -84,17 +84,20 @@ the optimized machine code can simply be reused in order to speed things up. How
 
 ![just-in-time](just-in-time.png)
 
-- Modern browsers have added a new part to the JS Engine called the `Monitor` or `Profiler`. It watches the code as it runs and makes a note how many times it is run, and what types are used. 
-- At first the `monitor` just runs everything through the `interpreter`.  If the same line of code has run a few times, that segment of the code is called `warm`, if run a lot of times then `hot`.
-- When a function starts getting `warm` the `JIT` sends it to the compiler to be compiled. Then stores that compilation.
-- Each line of the function is complied to a stub. The stubs are indexed by line number and variable type. 
-- If the `monitor` ses that the execution is hitting the same code again and again with the same variable types, it will pull out the compiled code.
-- If the code is `hot` the `JS Engine` will try to do some optimizations to speed things up.
-- The monitor will send it of to the `opimization compiler` and this will create another, even faster version of the function that will also be stored.
-- An object that is used often in code, the `JS Engine` creates a shape for the specific object. 
-- A shape is basically just a structure of what properties exist in that object. The shape contains pointers to the offsets on which we can find values of properties of that object.
-- Shapes are useful for an optimization technique called `inline caching`. That is when results of the previous operations are stored so that the next time the engine needs to get the value of a property with the same shape, it just gets it from the cache, rather than doing an offset lookup each time.
-- These inline caches also create some feedback for the optimizing compiler. This feedback is used to optimize the code and create machine code.
+- **Monitor/Profiler**:
+  This part of the engine acts like a tracker, keeping an eye on the code as it runs. It determines which parts of code are frequently run (referred to as "hot") and which are less frequently run (referred to as "warm").
+
+- **Baseline Compiler**:
+  On identifying a section of code as "warm" (i.e., executed multiple times), it's forwarded to a "Baseline Compiler". This compiler swiftly produces a basic, optimized version of the code, leaving certain areas for further optimization.
+
+- **Optimizing Compiler**:
+  When a part of code is frequently executed (termed "hot"), it is sent to the "Optimizing Compiler". This compiler spends more time to produce a highly optimized version of the code.
+
+- **Deoptimization/Bailout**:
+  In the scenario where assumptions made by the "Optimizing Compiler" are incorrect — for example, due to different data types than normal or similar circumstances — the code can be deoptimized and sent back to the "Baseline Compiler".
+
+- **Inline Caching**:
+  For frequently accessed properties, JavaScript engines create "shapes" which help in speeding up property access. Inline Caching allows the engine to remember previous operations, so it can access properties directly without repetitive and costly lookups.
 
 - Simpler version:
 1. Code goes through **parsing**, generates AST (abstract syntax tree)
