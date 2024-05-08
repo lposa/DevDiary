@@ -4,6 +4,9 @@
 
 - It's typically performed by creating a malicious link (button, form, web page, or any) and inducing the user to interact with this link. This way user unintentionally requests an app he is already logged in to. Such a request may change credentials or perform a banking transaction.
 
+![csrf.png](csrf.png)
+
+
 ## Key conditions
 
 1. **Relevant Action:** This refers to any action that an attacker could potentially gain from if they managed to trick a user into performing it. For example, imagine a function on a bank's website that allows users to transfer money. If an attacker could trick a user into unknowingly running a script that performs this action, they could transfer money to the attacker's account.
@@ -43,3 +46,8 @@ To provide a clearer explanation, think of the CSRF token as an additional passw
     - Typically, JWT tokens are signed by the server using a secret key, allowing the server to verify their authenticity. Some implementations also support encryption.
     - JWT tokens have an expiration time, after which they are no longer valid. This helps in reducing the risk associated with token theft.
     - JWT tokens can be used in various scenarios, such as API authentication, single sign-on (SSO), and authorization.
+
+# In Node.JS
+
+- We can use package `csurf`. It will check for a valid `csrf token`
+- 

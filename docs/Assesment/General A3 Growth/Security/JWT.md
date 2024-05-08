@@ -4,7 +4,7 @@
 
 ## What is JWT used for?
 
-- Used for authorization, so for making sure the user that sends the request is the same user that actually logged in during the authentication process.
+- Used for authentication, so for making sure the user that sends the request is the same user that actually logged in during the authentication process.
 - Often was done by session id and cookies, but with JWT we use JSON Web Tokens.
 
 ## How does it work?
