@@ -81,4 +81,4 @@
 3. The newcomer is showing low performance, how to fix this? 
 4. You are interviewing a newcomer, what are some red-flags?
 5. Imagine you have 2 potential candidates for your project. One of them has great technical knowledge, but lacks in team and communication skills, other one has less tech knowledge, but is a great team member and person? How would you choose?
-
+6. Difference between medior and senior developer in your opinion?
