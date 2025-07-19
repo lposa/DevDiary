@@ -14,9 +14,6 @@ Since **your VPC blocks all outbound traffic**, your Cloud Run service **can't r
 
 ## 🛠 How to Allow Only Microsoft Teams Webhook & Block Everything Else
 
-Yes! You **can** allow just the Microsoft Teams Webhook while blocking all other outbound traffic.  
-Here's how:
-
 ### 1️⃣ Use VPC Firewall Rules (Not the best for webhooks)
 - You can create a **firewall egress rule** to allow traffic only to Microsoft's IPs
 - **Issue:** Microsoft Teams **uses dynamic IPs**, so this isn't reliable
